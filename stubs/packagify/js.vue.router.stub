@@ -1,0 +1,16 @@
+import { createRouter, createWebHistory } from "vue-router";
+import AppLayout from "../{{ container }}/App.vue";
+/** IMPORTS */{{ imports }}/** ROUTES */
+const routes = [
+  {
+    path: "/{{ route_group }}",
+    name: "{{ name }}AppLayout",
+    component: AppLayout,
+    children: [{{ routes }}]
+  }
+];
+/** ROUTER */
+export const router = createRouter({
+  history: createWebHistory(),
+  routes
+});

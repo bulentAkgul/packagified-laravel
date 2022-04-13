@@ -1,0 +1,30 @@
+{
+  "name": "bakgul/packagified-laravel",
+  "description": "A package to collect the other packages to perform fully.",
+  "authors": [
+    {
+      "name": "Bulent Akgul",
+      "email": "bulent.akgul@me.com"
+    }
+  ],
+  "require": {},
+  "require-dev": {
+    "bakgul/kernel": "@dev",
+    "bakgul/command-evaluator": "@dev",
+    "bakgul/file-content": "@dev",
+    "bakgul/laravel-package-generator": "@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bakgul\\Packagify\\": "src/",
+      "Bakgul\\Packagify\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Bakgul\\Packagify\\PackagifyServiceProvider"
+      ]
+    }
+  }
+}

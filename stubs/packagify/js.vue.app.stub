@@ -1,0 +1,10 @@
+import { createApp } from 'vue';
+const app = createApp({});
+
+import { store } from './{{ container }}/{{ store }}';
+app.use(store);
+
+import { router } from './{{ container }}/{{ route }}';
+app.use(router);
+
+app.mount('#app');
