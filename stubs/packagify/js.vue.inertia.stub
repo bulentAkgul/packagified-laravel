@@ -1,10 +1,10 @@
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
-import AppLayout from "../{{ container }}/App.vue";
+import AppLayout from "./{{ container }}/App.vue";
 
 createInertiaApp({
   resolve: async name => {
-    let page = (await import(`{{ relative_path }}${name}`)).default;
+    let page = (await import(`./{{ relative_path }}/${name}`)).default;
     if (page.layout === undefined) page.layout = AppLayout;
     return page;
   },

@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
-/** IMPORTS */{{ imports }}/** STORE */
+/** IMPORTS */
+/** STORE */
 export const store = createStore({
   state: {},
-  modules: {{{ stores }}}
+  modules: {}
 });

@@ -11,6 +11,7 @@
 
     @stack("app-styles")
     @stack("app-scripts")
+    @section("head")
 </head>
 
 <body>

@@ -1,10 +1,7 @@
-import { createApp } from 'vue';
+import { createApp } from 'vue';{{ store }}{{ route }}
+
 const app = createApp({});
 
-import { store } from './{{ container }}/{{ store }}';
-app.use(store);
-
-import { router } from './{{ container }}/{{ route }}';
-app.use(router);
+{{ uses }}
 
 app.mount('#app');

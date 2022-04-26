@@ -12,7 +12,8 @@
     "bakgul/kernel": "@dev",
     "bakgul/command-evaluator": "@dev",
     "bakgul/file-content": "@dev",
-    "bakgul/laravel-package-generator": "@dev"
+    "bakgul/laravel-package-generator": "@dev",
+    "bakgul/laravel-resource-generator": "@dev"
   },
   "autoload": {
     "psr-4": {

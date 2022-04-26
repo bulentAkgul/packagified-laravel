@@ -8,7 +8,9 @@ class PackagifyServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        //
+        $this->commands([
+            \Bakgul\Packagify\Commands\BuildPackagifiedLaravelCommand::class,
+        ]);
     }
 
     public function register()
