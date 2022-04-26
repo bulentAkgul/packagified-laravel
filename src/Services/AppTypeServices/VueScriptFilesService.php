@@ -49,7 +49,6 @@ class VueScriptFilesService
 
     private static function makeRouter(array $app, string $path, string $ext)
     {
-        ray($app);
         if ($app['router'] != 'vue-router') return;
 
         CreateFile::_(MakeRequest::_(
