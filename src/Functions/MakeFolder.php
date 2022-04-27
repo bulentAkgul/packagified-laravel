@@ -2,7 +2,7 @@
 
 namespace Bakgul\Packagify\Functions;
 
-use Bakgul\FileContent\Tasks\CompleteFolders;
+use Bakgul\Kernel\Tasks\CompleteFolders;
 use Bakgul\Kernel\Helpers\Path;
 
 class MakeFolder
