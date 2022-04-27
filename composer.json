@@ -10,10 +10,10 @@
   "require": {},
   "require-dev": {
     "bakgul/kernel": "@dev",
-    "bakgul/command-evaluator": "@dev",
     "bakgul/file-content": "@dev",
+    "bakgul/laravel-file-creator": "@dev",
     "bakgul/laravel-package-generator": "@dev",
-    "bakgul/laravel-resource-generator": "@dev"
+    "bakgul/laravel-resource-creator": "@dev"
   },
   "autoload": {
     "psr-4": {
