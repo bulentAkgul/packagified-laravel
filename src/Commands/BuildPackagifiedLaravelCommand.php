@@ -4,6 +4,7 @@ namespace Bakgul\Packagify\Commands;
 
 use Bakgul\Kernel\Concerns\HasPreparation;
 use Bakgul\Kernel\Concerns\HasRequest;
+use Bakgul\Kernel\Tasks\SimulateArtisanCall;
 use Bakgul\Kernel\Helpers\Settings;
 use Bakgul\Packagify\Services\PackagifyService;
 use Illuminate\Console\Command;
@@ -26,7 +27,15 @@ class BuildPackagifiedLaravelCommand extends Command
         $this->prepareRequest();
 
         Settings::standalone('package')
-            ? Artisan::call('create:package')
+            ? $this->createPackage()
             : PackagifyService::create($this->request);
+    }
+
+    private function createPackage(): void
+    {
+        (new SimulateArtisanCall)(
+            ['command' => 'create:package', 'name' => null, 'root' => null, 'dev' => false],
+            'package'
+        );
     }
 }
