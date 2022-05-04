@@ -8,7 +8,6 @@ use Bakgul\Kernel\Tasks\SimulateArtisanCall;
 use Bakgul\Kernel\Helpers\Settings;
 use Bakgul\Packagify\Services\PackagifyService;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
 
 class BuildPackagifiedLaravelCommand extends Command
 {
