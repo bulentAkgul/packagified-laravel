@@ -8,7 +8,7 @@ class GetStyleSpecs
 {
     public static function _()
     {
-        $css = Settings::resourceOptions('css');
+        $css = Settings::main('css');
         $ext = Settings::resources("{$css}.extension");
 
         return [$css, $ext];
