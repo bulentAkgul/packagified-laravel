@@ -2,6 +2,7 @@
 
 namespace Bakgul\Packagify\Commands;
 
+use Bakgul\FileHistory\Concerns\HasHistory;
 use Bakgul\Kernel\Concerns\HasPreparation;
 use Bakgul\Kernel\Concerns\HasRequest;
 use Bakgul\Kernel\Tasks\SimulateArtisanCall;
@@ -11,7 +12,7 @@ use Illuminate\Console\Command;
 
 class BuildPackagifiedLaravelCommand extends Command
 {
-    use HasPreparation, HasRequest;
+    use HasHistory, HasPreparation, HasRequest;
 
     protected $signature = 'build-pl';
     protected $description = '';
@@ -25,9 +26,13 @@ class BuildPackagifiedLaravelCommand extends Command
     {
         $this->prepareRequest();
 
+        $this->logFile();
+
         Settings::standalone('package')
             ? $this->createPackage()
             : PackagifyService::create($this->request);
+        
+        // install dependencies
     }
 
     private function createPackage(): void
