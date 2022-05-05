@@ -7,13 +7,13 @@
       "email": "bulent.akgul@me.com"
     }
   ],
-  "require": {},
-  "require-dev": {
-    "bakgul/kernel": "@dev",
-    "bakgul/file-content": "@dev",
-    "bakgul/laravel-file-creator": "@dev",
-    "bakgul/laravel-package-generator": "@dev",
-    "bakgul/laravel-resource-creator": "@dev"
+  "require": {
+    "php": "^8.0.2",
+    "bakgul/kernel": "0.1.*",
+    "bakgul/file-content": "0.1.*",
+    "bakgul/laravel-file-creator": "0.1.*",
+    "bakgul/laravel-package-generator": "0.1.*",
+    "bakgul/laravel-resource-creator": "0.1.*"
   },
   "autoload": {
     "psr-4": {
