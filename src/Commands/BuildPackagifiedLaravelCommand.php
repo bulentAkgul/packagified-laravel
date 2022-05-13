@@ -31,8 +31,6 @@ class BuildPackagifiedLaravelCommand extends Command
         Settings::standalone('package')
             ? $this->createPackage()
             : PackagifyService::create($this->request);
-        
-        // install dependencies
     }
 
     private function createPackage(): void
