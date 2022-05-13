@@ -12,10 +12,9 @@ class BuildTest extends TestCase
     public function create_sp()
     {
         (new SetupTest)(TestDataService::standalone('sp'), true);
-
         $this->artisan('build-pl');
     }
-
+    
     /** @test */
     public function create_sl()
     {
