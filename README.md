@@ -5,6 +5,14 @@ This is the main package that collects the other packages in this family.
 ```
 sail composer require bakgul/packagified-laravel --dev
 ```
+Next, you need to publish the settings through executing the following command. By doing so, you will have a new file named **packagify.php** in the config folder. If you check the "**files**" array, you can see the file types that can be created. A quite deep explanations are provided in the comment block of the files array.
+```
+sail artisan packagify:publish-config
+```
+After publishing stubs, you will be able to update the stub files as you need. It's safe to delete the untouched files.
+```
+sail artisan packagify:publish-stub
+```
 ## Commands
 This packages ships with one command.
 
