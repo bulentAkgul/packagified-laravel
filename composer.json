@@ -12,9 +12,12 @@
     "php": "^8.0.2",
     "bakgul/kernel": "0.1.*",
     "bakgul/file-content": "0.1.*",
+    "bakgul/file-history": "0.1.*",
+    "bakgul/command-evaluator": "0.1.*",
     "bakgul/laravel-file-creator": "0.1.*",
-    "bakgul/laravel-package-generator": "0.1.*",
-    "bakgul/laravel-resource-creator": "0.1.*"
+    "bakgul/laravel-resource-creator": "0.1.*",
+    "bakgul/laravel-code-generator": "0.1.*",
+    "bakgul/laravel-package-generator": "0.1.*"
   },
   "autoload": {
     "psr-4": {
