@@ -1,12 +1,19 @@
 # Packagified Laravel
 
 This is the main package that collects the other packages in this family.
+-   [**Command Evaluator**](https://github.com/bulentAkgul/command-evaluator)
+-   [**File Content**](https://github.com/bulentAkgul/file-content)
+-   [**File History**](https://github.com/bulentAkgul/file-history)
+-   [**Kernel**](https://github.com/bulentAkgul/kernel)
+-   [**Laravel File Creator**](https://github.com/bulentAkgul/laravel-file-creator)
+-   [**Laravel Resource Creator**](https://github.com/bulentAkgul/laravel-resource-creator)
+-   [**Laravel Package Generator**](https://github.com/bulentAkgul/laravel-package-generator)
 
 ## Installation
 ```
 sail composer require bakgul/packagified-laravel --dev
 ```
-Next, you need to publish the settings by executing the following command. By doing so, you will have a new file named **packagify.php** in the config folder. If you check the "**files**" array, you can see the file types that can be created. Quite deep explanations are provided in the comment block of the files array.
+Next, you need to publish the settings by executing the following command. By doing so, you will have a new file named *config/packagify.php* in the config folder. If you check the "**files**" array, you can see the file types that can be created. Quite deep explanations are provided in the comment block of the files array.
 ```
 sail artisan packagify:publish-config
 ```
@@ -26,13 +33,3 @@ This command accepts no argument.
 
 ### Options
 This command accepts no option.
-
-## The Packages That Will Be Installed By This Package
-
--   [**Command Evaluator**](https://github.com/bulentAkgul/command-evaluator)
--   [**File Content**](https://github.com/bulentAkgul/file-content)
--   [**File History**](https://github.com/bulentAkgul/file-history)
--   [**Kernel**](https://github.com/bulentAkgul/kernel)
--   [**Laravel File Creator**](https://github.com/bulentAkgul/laravel-file-creator)
--   [**Laravel Resource Creator**](https://github.com/bulentAkgul/laravel-resource-creator)
--   [**Laravel Package Generator**](https://github.com/bulentAkgul/laravel-package-generator)
