@@ -2,9 +2,7 @@
 
 namespace Bakgul\Packagify\Services\AppTypeServices;
 
-use Bakgul\Kernel\Functions\CreateFile;
 use Bakgul\Kernel\Helpers\Settings;
-use Bakgul\Packagify\Functions\MakeRequest;
 use Bakgul\ResourceCreator\Services\ResourceService;
 
 class BladeViewFilesService
