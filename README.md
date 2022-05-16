@@ -9,14 +9,19 @@ This is the main package that collects the other packages in this family.
 -   [**Laravel Resource Creator**](https://github.com/bulentAkgul/laravel-resource-creator)
 -   [**Laravel Package Generator**](https://github.com/bulentAkgul/laravel-package-generator)
 
+#### DISCLAIMER
+It should be production-ready but hasn't been tested enough. You should use it carefully since this package will manipulate your files and folders. Always use a version-control.
+
 ## Installation
 ```
 sail composer require bakgul/packagified-laravel --dev
 ```
 Next, you need to publish the settings by executing the following command. By doing so, you will have a new file named *config/packagify.php* in the config folder. If you check the "**files**" array, you can see the file types that can be created. Quite deep explanations are provided in the comment block of the files array.
+
 ```
 sail artisan packagify:publish-config
 ```
+
 After publishing stubs, you will be able to update the stub files as you need. It's safe to delete the unedited files.
 ```
 sail artisan packagify:publish-stub
