@@ -16,7 +16,7 @@ It should be production-ready but hasn't been tested enough. You should use it c
 ```
 sail composer require bakgul/packagified-laravel --dev
 ```
-Next, you need to publish the settings by executing the following command. By doing so, you will have a new file named *config/packagify.php* in the config folder. If you check the "**files**" array, you can see the file types that can be created. Quite deep explanations are provided in the comment block of the files array.
+Next, you need to publish the settings by executing the following command. By doing so, you will have a new file named *packagify.php* on the config folder. If you check the "**files**" array, you can see the file types that can be created. Quite deep explanations are provided in the comment block of the files array.
 
 ```
 sail artisan packagify:publish-config
