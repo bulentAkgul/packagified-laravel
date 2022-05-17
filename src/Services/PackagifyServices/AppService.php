@@ -22,7 +22,7 @@ class AppService
 
         self::createCssFiles();
         self::createJsFiles();
-        self::createMainView();
+        self::createViewFiles();
     }
 
     private static function createCssFiles()
@@ -50,7 +50,7 @@ class AppService
         MakeFolder::_(self::$root, Settings::folders('js'));
     }
 
-    private static function createMainView()
+    private static function createViewFiles()
     {
         CreateFile::_(MakeRequest::_([
             'stub' => 'blade.index.stub',
