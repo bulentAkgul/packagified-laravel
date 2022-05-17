@@ -1,6 +1,6 @@
 {
   "name": "bakgul/packagified-laravel",
-  "description": "A package to collect the other packages to perform fully.",
+  "description": "This is the main package that collects the other packages in this family to perform fully.",
   "authors": [
     {
       "name": "Bulent Akgul",

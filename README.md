@@ -1,12 +1,13 @@
 # Packagified Laravel
 
-This is the main package that collects the other packages in this family.
+This is the main package that collects the other packages in this family to perform fully.
 -   [**Command Evaluator**](https://github.com/bulentAkgul/command-evaluator)
 -   [**File Content**](https://github.com/bulentAkgul/file-content)
 -   [**File History**](https://github.com/bulentAkgul/file-history)
 -   [**Kernel**](https://github.com/bulentAkgul/kernel)
 -   [**Laravel File Creator**](https://github.com/bulentAkgul/laravel-file-creator)
 -   [**Laravel Resource Creator**](https://github.com/bulentAkgul/laravel-resource-creator)
+-   [**Laravel Code Generator**](https://github.com/bulentAkgul/laravel-code-generator)
 -   [**Laravel Package Generator**](https://github.com/bulentAkgul/laravel-package-generator)
 
 #### DISCLAIMER
