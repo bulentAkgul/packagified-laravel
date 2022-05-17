@@ -29,7 +29,7 @@ class VueViewFilesService
             'wrapper' => null,
             'queue' => [],
             'signature' => [],
-            'pipeline' => Settings::resources('vue'),
+            'pipeline' => ['type' => 'vue', ...Settings::resources('vue')],
             'force' => false
         ];
     }
