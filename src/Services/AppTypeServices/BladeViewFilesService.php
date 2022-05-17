@@ -12,7 +12,7 @@ class BladeViewFilesService
         //
     }
 
-    public static function root(array $app, string $path)
+    public static function root(array $app)
     {
         (new ResourceService)->create(self::request($app));
     }

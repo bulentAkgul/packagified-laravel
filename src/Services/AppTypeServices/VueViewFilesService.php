@@ -7,15 +7,15 @@ use Bakgul\ResourceCreator\Services\ResourceService;
 
 class VueViewFilesService
 {
-    public static function create(array $app, string $path)
+    public static function root(array $app)
     {
-        (new ResourceService)->create(self::request($app, $path));
+        (new ResourceService)->create(self::request($app));
     }
 
-    private static function request(array $app, string $path): array
+    private static function request(array $app): array
     {
         return [
-            'name' => 'app',
+            'name' => $app['folder'],
             'type' => 'view',
             'package' => null,
             'app' => $app['key'],
