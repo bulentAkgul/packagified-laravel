@@ -2,15 +2,12 @@
 
 namespace Bakgul\Packagify\Services\AppTypeServices;
 
-use Bakgul\FileContent\Functions\CreateFile;
-use Bakgul\Kernel\Helpers\Path;
 use Bakgul\Kernel\Helpers\Settings;
-use Bakgul\Packagify\Functions\MakeRequest;
 use Bakgul\ResourceCreator\Services\ResourceService;
 
 class VueScriptFilesService
 {
-    public static function root(array $app, string $path, string $ext)
+    public static function root(array $app)
     {
         (new ResourceService)->create(self::request($app));
     }
@@ -36,47 +33,5 @@ class VueScriptFilesService
             'job' => 'packagify',
             'parent' => '',
         ];
-    }
-
-    public static function create(array $app, string $path)
-    {
-        $ext = Settings::resources("{$app['type']}.options.ts") ? 'ts' : Settings::resources('js.extension') ?? 'js';
-
-        self::makeRouter($app, $path, $ext);
-
-        self::makeStore($path, $ext);
-    }
-
-    private static function makeRouter(array $app, string $path, string $ext)
-    {
-        if ($app['router'] != 'vue-router') return;
-
-        CreateFile::_(MakeRequest::_(
-            [
-                'path' => self::setPath($path),
-                'file' => "router.{$ext}",
-                'stub' => 'js.vue.router.stub',
-            ],
-            [
-                'container' => Settings::folders('view'),
-                'route_group' => $app['route_group']
-            ]
-        ));
-    }
-
-    private static function makeStore(string $path, string $ext)
-    {
-        if (Settings::resources('vue.options.store') != 'vuex') return;
-
-        CreateFile::_(MakeRequest::_([
-            'path' => self::setPath($path),
-            'file' => "stores.{$ext}",
-            'stub' => 'js.vue.stores.stub',
-        ]));
-    }
-    
-    private static function setPath(string $path)
-    {
-        return Path::glue([$path, Settings::folders('js')]);
     }
 }
