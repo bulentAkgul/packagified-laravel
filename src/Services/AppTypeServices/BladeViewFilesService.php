@@ -33,7 +33,7 @@ class BladeViewFilesService
             'subs' => '',
             'queue' => [],
             'signature' => [],
-            'pipeline' => Settings::resources('blade'),
+            'pipeline' => ['type' => 'blade', ...Settings::resources('blade')],
             'force' => false,
             'job' => 'packagify',
             'parent' => 'index',
