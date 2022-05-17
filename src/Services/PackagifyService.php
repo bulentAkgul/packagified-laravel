@@ -22,7 +22,7 @@ class PackagifyService
     private static function resources()
     {
         file_exists(base_path('resources'))
-            ? array_map(fn ($x) => unlink($x), Folder::files(base_path('resources')))
+            ? Folder::refresh(base_path('resources'))
             : MakeFolder::_(base_path('resources'));
     }
 
