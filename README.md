@@ -29,9 +29,14 @@ sail artisan packagify:publish-stub
 ```
 
 ## Commands
+
+#### VERY IMPORTANT NOTE
+You should use this command unless you have a freshly installed Laravel app. This command will wipe out some folders, and you will probably lose your previous codes.
+
 ```
 sail artisan build-pl
 ```
+
 This command will prepare your repository when it's executed. But before you call it, make sure you set repository type properly. After publishing the settings, go to config/packagify.php and search for "repository" to see the settings. You will find the comments there too. Please read them to get explanations.
 
 ### Arguments
