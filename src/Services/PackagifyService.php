@@ -15,12 +15,20 @@ class PackagifyService
 {
     public static function create(): void
     {
+        self::logFolders();
         self::resources();
         self::packages();
         self::copy();
 
         AppService::create();
         ClientService::create();
+    }
+
+    private static function logFolders()
+    {
+        $base = Path::glue([storage_path(), 'logs', 'packagify', '']);
+
+        array_map(fn ($x) => CompleteFolders::_("{$base}{$x}"), ['redo', 'undo']);
     }
 
     private static function resources()
