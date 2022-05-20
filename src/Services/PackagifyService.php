@@ -54,9 +54,9 @@ class PackagifyService
         $files = Folder::files(Path::glue([__DIR__, '..', '..', 'files']));
 
         foreach ($files as $file) {
-            $paste = base_path(explode('files' . DIRECTORY_SEPARATOR, $file)[1]);
+            $paste = base_path(str_replace('.stub', '', explode('files' . DIRECTORY_SEPARATOR, $file)[1]));
 
-            CompleteFolders::_(Text::dropTail($paste), false);
+            CompleteFolders::_(Text::dropTail($paste));
 
             copy($file, $paste);
         }
