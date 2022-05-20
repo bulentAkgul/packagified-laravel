@@ -10,6 +10,7 @@ use Bakgul\Kernel\Tasks\CompleteFolders;
 use Bakgul\Packagify\Functions\MakeFolder;
 use Bakgul\Packagify\Services\PackagifyServices\AppService;
 use Bakgul\Packagify\Services\PackagifyServices\ClientService;
+use Bakgul\Packagify\Services\PackagifyServices\ViewService;
 
 class PackagifyService
 {
@@ -22,6 +23,7 @@ class PackagifyService
 
         AppService::create();
         ClientService::create();
+        ViewService::register();
     }
 
     private static function logFolders()
