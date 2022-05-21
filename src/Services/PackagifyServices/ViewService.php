@@ -58,7 +58,7 @@ class ViewService
         return implode('/', array_filter([
             $root ?: Settings::folders('apps'),
             $appFolder,
-            $root ? Settings::folders('views') : '',
+            Settings::folders('views'),
         ]));
     }
 
