@@ -2,6 +2,7 @@
 
 namespace Bakgul\Packagify\Services\AppTypeServices;
 
+use Bakgul\Kernel\Helpers\Folder;
 use Bakgul\Kernel\Helpers\Settings;
 use Bakgul\ResourceCreator\Services\ResourceService;
 

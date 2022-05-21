@@ -19,10 +19,10 @@ class ClientService
         foreach (Settings::apps() as $key => $app) {
             $app = [...$app, 'key' => $key];
             
-            $path = MakeFolder::_(self::$root, $app['folder']);
+            MakeFolder::_(self::$root, $app['folder']);
 
             array_map(
-                fn ($type) => CreateFiles::_($app, $path, $type),
+                fn ($type) => CreateFiles::_($app, $type),
                 ['css', 'js', 'view']
             );
         }
