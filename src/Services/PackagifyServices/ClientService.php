@@ -12,9 +12,9 @@ class ClientService
 
     public static function create()
     {
-        if (!class_exists("\Bakgul\ResourceCreator\ResourceCreatorServiceProvider")) return;
+        if (self::isCreatorMissing()) return;
         
-        self::$root = MakeFolder::_(base_path('resources'), Settings::folders('apps'));
+        self::setRoot();
 
         foreach (Settings::apps() as $key => $app) {
             $app = [...$app, 'key' => $key];
@@ -26,5 +26,15 @@ class ClientService
                 ['css', 'js', 'view']
             );
         }
+    }
+
+    private static function isCreatorMissing(): bool
+    {
+        return !class_exists("\Bakgul\ResourceCreator\ResourceCreatorServiceProvider");
+    }
+
+    private static function setRoot()
+    {
+        self::$root = MakeFolder::_(base_path('resources'), Settings::folders('apps'));
     }
 }
