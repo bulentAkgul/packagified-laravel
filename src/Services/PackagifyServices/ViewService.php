@@ -42,7 +42,7 @@ class ViewService
     {
         $lines = ["resource_path('" . self::makePath('app') . "'),"];
 
-        foreach (Settings::apps(callback: fn ($x) => $x['type'] == 'blade') as $app) {
+        foreach (Settings::apps(callback: fn ($x) => $x['medium'] == 'browser') as $app) {
             $lines[] = implode('', [
                 "resource_path('",
                 self::makePath(appFolder: $app['folder']),

@@ -1,9 +1,7 @@
 @extends("{{ extend }}")
 
 @section("app-content")
-
-<div id="app">{{ content }}</div>
-
+{{ content }}
 @endsection
 
 @push("app-scripts")

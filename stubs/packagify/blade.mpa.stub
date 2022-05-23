@@ -5,12 +5,11 @@
 @endsection
 
 @section("app-content")
-    @yield("page-content")
+{{ content }}
 @endsection
 
 @push("app-styles")
-    <link rel="stylesheet" href="{{ asset('css/{{ app }}.css') }}">
-    {{ styles }}
+    <link rel="stylesheet" href="{{ asset('css/{{ app }}.css') }}">{{ styles }}
 @endpush
 
 @push("app-scripts")
@@ -18,6 +17,5 @@
 @endpush
 
 @push("scripts")
-    @yield("scripts")
-    {{ scripts }}
+    @yield("scripts"){{ scripts }}
 @endpush

@@ -9,14 +9,15 @@ use Bakgul\Kernel\Tests\TestCase;
 class BuildTest extends TestCase
 {
     /** @test */
-    public function create_sp()
+    public function build_sp()
     {
         (new SetupTest)(TestDataService::standalone('sp'), true);
+        
         $this->artisan('build-pl');
     }
     
     /** @test */
-    public function create_sl()
+    public function build_sl()
     {
         (new SetupTest)(TestDataService::standalone('sl'), true);
 
@@ -24,7 +25,7 @@ class BuildTest extends TestCase
     }
     
     /** @test */
-    public function create_pl()
+    public function build_pl()
     {
         (new SetupTest)(TestDataService::standalone('pl'), true);
 
