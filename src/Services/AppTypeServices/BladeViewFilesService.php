@@ -7,11 +7,6 @@ use Bakgul\ResourceCreator\Services\ResourceService;
 
 class BladeViewFilesService
 {
-    public static function create(array $app, string $path)
-    {
-        //
-    }
-
     public static function root(array $app)
     {
         (new ResourceService)->create(self::request($app));
