@@ -3,12 +3,14 @@
 namespace Bakgul\Packagify\Services\PackagifyServices;
 
 use Bakgul\FileContent\Functions\CreateFile;
+use Bakgul\Kernel\Helpers\Arry;
 use Bakgul\Kernel\Helpers\Path;
 use Bakgul\Kernel\Helpers\Prevented;
 use Bakgul\Kernel\Helpers\Settings;
 use Bakgul\Packagify\Functions\MakeFolder;
 use Bakgul\Packagify\Functions\MakeRequest;
 use Bakgul\Packagify\Functions\GetStyleSpecs;
+use Bakgul\Packagify\Services\AppTypeServices\BladeViewFilesService;
 
 class AppService
 {
@@ -52,10 +54,13 @@ class AppService
 
     private static function createViewFiles()
     {
-        CreateFile::_(MakeRequest::_([
-            'stub' => 'blade.index.stub',
-            'file' => 'index.blade.php',
-            'path' => Path::glue([self::$root, Settings::folders('view')])
-        ]));
+        $key = Arry::find(Settings::apps(), 'blade', 'type', nullable: false)['key'];
+
+        BladeViewFilesService::root([
+            'key' => $key,
+            ...($key ? Settings::apps($key) : []),
+            'parent' => '',
+            'folder' => 'index',
+        ]);
     }
 }
