@@ -1,0 +1,14 @@
+<x-layouts.index-layout>
+    <x-slot name="head">{{ style }}
+        <script src="{{ asset('js/manifest.js') }}" defer></script>
+        <script src="{{ asset('js/vendor.js') }}" defer></script>
+        <script src="{{ asset('js/{{ app }}.js') }}" defer></script>
+        @if (isset($head)) {{ $head }} @endif
+    </x-slot>
+
+    {{ $slot }}
+
+    <x-slot name="script">
+        @if (isset($script)) {{ $script }} @endif
+    </x-slot>
+</x-layouts.index-layout>
