@@ -7,9 +7,8 @@ use Bakgul\Kernel\Helpers\Arry;
 use Bakgul\Kernel\Helpers\Path;
 use Bakgul\Kernel\Helpers\Prevented;
 use Bakgul\Kernel\Helpers\Settings;
+use Bakgul\Kernel\Helpers\Text;
 use Bakgul\Packagify\Functions\MakeFolder;
-use Bakgul\Packagify\Functions\MakeRequest;
-use Bakgul\Packagify\Functions\GetStyleSpecs;
 use Bakgul\Packagify\Services\AppTypeServices\BladeViewFilesService;
 
 class AppService
@@ -29,22 +28,40 @@ class AppService
 
     private static function createCssFiles()
     {
-        $container = MakeFolder::_(self::$root, Settings::folders('css'));
-
         if (Prevented::css()) return;
 
-        MakeFolder::_($container, Settings::folders('components'));
-        $container = MakeFolder::_($container, Settings::folders('abstract'));
+        $container = MakeFolder::_(self::$root, Settings::folders('css'));
 
-        [$css, $ext] = GetStyleSpecs::_();
+        $ext = Settings::resources(Settings::main('css') . '.extension');
 
-        file_put_contents(Path::glue([$container, "properties.{$ext}"]), ':root {}');
+        foreach (Settings::structures('resources.' . Settings::main('css')) as $folder => $files) {
+            $path = MakeFolder::_(Path::glue([$container, $folder]));
 
-        if ($css != 'sass') return;
+            foreach ($files as $file) {
+                CreateFile::_(self::request($path, "{$file}.{$ext}"));
 
-        foreach (['variables', 'functions', 'mixins'] as $name) {
-            file_put_contents(Path::glue([$container, "{$name}.{$ext}"]), '');
+                if ($file == '_index') self::forwardFiles($path, "{$file}.{$ext}", $files);
+            }
         }
+    }
+
+    private static function request($path, $file)
+    {
+        return [
+            'attr' => ['path' => $path, 'file' => $file, 'stub' => 'css.stub', 'force' => false, 'job' => 'packagify', 'variation' => ''],
+            'map' => []
+        ];
+    }
+
+    private static function forwardFiles($path, $index, $files)
+    {
+        file_put_contents(
+            Path::glue([$path, $index]),
+            implode(PHP_EOL, array_map(
+                fn ($x) => '@forward ' . Text::wrap("./{$x}", 'dq') . ';',
+                Arry::sort(array_filter($files, fn ($x) => $x != '_index'))
+            ))
+        );
     }
 
     private static function createJsFiles()
