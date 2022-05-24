@@ -1,7 +1,6 @@
 import { createApp } from 'vue';{{ store }}{{ route }}
 
 const app = createApp({});
-
 {{ uses }}
 
 app.mount('#app');
