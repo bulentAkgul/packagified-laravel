@@ -12,10 +12,28 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        $this->call(array_filter(array_map(fn ($x) => $this->class($x), self::PACKAGES_BY_SEEDING_PRIORITY)));
+        $this->call(array_filter(array_map(
+            fn ($x) => $this->class($x),
+            $this->setPackages()
+        )));
     }
 
-    private function class($package)
+    private function setPackages(): array
+    {
+        $prioritizedList = self::PACKAGES_BY_SEEDING_PRIORITY;
+
+        foreach (Package::list(isGroupped: true) as $packages) {
+            foreach ($packages as $package) {
+                if (in_array($package, $prioritizedList)) continue;
+
+                $prioritizedList[] = $package;
+            }
+        }
+
+        return array_filter($prioritizedList);
+    }
+
+    private function class(string $package): string
     {
         return '\\' . GenerateNamespace::_([
             'root' => Package::root($package),
