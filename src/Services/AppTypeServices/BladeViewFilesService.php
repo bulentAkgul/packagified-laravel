@@ -2,6 +2,7 @@
 
 namespace Bakgul\Packagify\Services\AppTypeServices;
 
+use Bakgul\Kernel\Helpers\Arry;
 use Bakgul\Kernel\Helpers\Settings;
 use Bakgul\ResourceCreator\Services\ResourceService;
 
@@ -31,7 +32,7 @@ class BladeViewFilesService
             'pipeline' => ['type' => 'blade', ...Settings::resources('blade')],
             'force' => false,
             'job' => 'packagify',
-            'parent' => 'index',
+            'parent' => Arry::get($app, 'parent') ?? 'index',
         ];
     }
 }
