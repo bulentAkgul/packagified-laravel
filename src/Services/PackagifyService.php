@@ -7,6 +7,7 @@ use Bakgul\Packagify\Services\PackagifyServices\ClientService;
 use Bakgul\Packagify\Services\PackagifyServices\RootService;
 use Bakgul\Packagify\Services\PackagifyServices\ViewService;
 use Bakgul\Packagify\Tasks\Prepare;
+use Bakgul\Packagify\Tasks\ProtectAdminApp;
 
 class PackagifyService
 {
@@ -17,5 +18,6 @@ class PackagifyService
         ClientService::create();
         ViewService::register();
         RootService::create();
+        ProtectAdminApp::_();
     }
 }
